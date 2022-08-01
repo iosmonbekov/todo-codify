@@ -5,3 +5,8 @@ Javascript
 
 React: 
 1.Components and Props https://reactjs.org/docs/components-and-props.html;
+2.Stae and LifeCycle https://reactjs.org/docs/state-and-lifecycle.html;
+3.Handling Events https://reactjs.org/docs/handling-events.html;
+
+// Project:
+1. Deletion :fire;
