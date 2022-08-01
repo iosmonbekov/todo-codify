@@ -1,8 +1,15 @@
-function Input() {
+
+
+function Input({value, setValue, onButtonClick}) {
+
+  function onInputChange(event) { // Меняем значение *value*. (Рендер)
+    setValue(event.target.value);
+  }
+
   return (
     <div>
-      <input />
-      <button>Save</button>
+      <input value={value} onChange={onInputChange} /> 
+      <button onClick={onButtonClick}>Save</button>
     </div>
   );
 }

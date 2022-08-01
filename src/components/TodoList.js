@@ -1,11 +1,13 @@
 import Todo from './Todo';
 
-function TodoList({ todoList }) {
+function TodoList(props) {
   return (
     <>
-      {todoList.map((text) => (
-        <Todo key={text} text={text} />
-      ))}
+      {
+        props.list.map((text) => (
+          <Todo key={text} text={text} />
+        ))
+      }
     </>
   );
 }

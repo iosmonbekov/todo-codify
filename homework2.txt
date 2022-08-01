@@ -1,0 +1,7 @@
+Javascript
+1. Arrays https://learn.javascript.ru/array;
+2. Events https://learn.javascript.ru/introduction-browser-events;
+3. Sread Operator https://learn.javascript.ru/rest-parameters-spread-operator
+
+React: 
+1.Components and Props https://reactjs.org/docs/components-and-props.html;
