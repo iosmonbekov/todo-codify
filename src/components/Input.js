@@ -1,15 +1,35 @@
+import { useState } from 'react';
 
+const PLACE_HOLDER = 'Enter todo...';
 
-function Input({value, setValue, onButtonClick}) {
+function Input({ value, setValue, createTodo }) {
+  const [placeholder, setPlaceholder] = useState(PLACE_HOLDER);
 
-  function onInputChange(event) { // Меняем значение *value*. (Рендер)
+  function onInputChange(event) {
+    // Меняем значение *value*. (Рендер)
     setValue(event.target.value);
+  }
+
+  function onSave() {
+    validateValue();
+    createTodo();
+  }
+
+  function validateValue() {
+    if (value.trim() === '') {
+      setPlaceholder('must not be blank');
+    }
   }
 
   return (
     <div>
-      <input value={value} onChange={onInputChange} /> 
-      <button onClick={onButtonClick}>Save</button>
+      <input
+        value={value}
+        onFocus={() => setPlaceholder(PLACE_HOLDER)}
+        placeholder={placeholder}
+        onChange={onInputChange}
+      />
+      <button onClick={onSave}>Save</button>
     </div>
   );
 }

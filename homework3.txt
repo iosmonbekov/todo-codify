@@ -1,0 +1,8 @@
+// JavaScript:
+1.Callbacks https://learn.javascript.ru/callbacks
+
+// React:
+1. Read previos HomeWork;
+
+// ExtraHomeWork:
+2. Modal Window for Edit.

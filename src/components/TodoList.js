@@ -1,13 +1,11 @@
 import Todo from './Todo';
 
-function TodoList(props) {
+function TodoList({ list, deleteTodo }) {
   return (
     <>
-      {
-        props.list.map((text) => (
-          <Todo key={text} text={text} />
-        ))
-      }
+      {list.map((todo) => (
+        <Todo key={todo.id} todo={todo} deleteTodo={deleteTodo} />
+      ))}
     </>
   );
 }
