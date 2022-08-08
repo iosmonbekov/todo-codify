@@ -22,3 +22,28 @@ code {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Popup */
+
+.popup {
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.popup.active {
+  display: flex;
+}
+
+.popup-body {
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+  background-color: aliceblue;
+}

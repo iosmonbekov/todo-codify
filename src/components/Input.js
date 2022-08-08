@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 const PLACE_HOLDER = 'Enter todo...';
 
-function Input({ value, setValue, createTodo }) {
+function Input({ value, setValue, saveTodo }) {
   const [placeholder, setPlaceholder] = useState(PLACE_HOLDER);
 
   function onInputChange(event) {
@@ -12,7 +12,7 @@ function Input({ value, setValue, createTodo }) {
 
   function onSave() {
     validateValue();
-    createTodo();
+    saveTodo();
   }
 
   function validateValue() {
