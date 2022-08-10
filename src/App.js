@@ -59,7 +59,6 @@ function App() {
   }
 
   function onEditTodo(id) {
-    // OnEditButton Click
     const todo = list.find((todo) => {
       if (todo.id === id) return true;
       return false;
