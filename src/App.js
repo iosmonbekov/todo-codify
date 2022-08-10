@@ -1,6 +1,5 @@
 import TodoList from './components/TodoList';
 import Input from './components/Input';
-import Popup from './components/Popup';
 import { useState } from 'react';
 
 const MODE = {
@@ -9,14 +8,12 @@ const MODE = {
 };
 
 function App() {
-  const [popup, setPopup] = useState(false);
   const [value, setValue] = useState(''); // [Хранит состояние <input />, Изменяет значение слева, ОНА ДЕЛАЕТ ПОВТОРНЫЙ РЕНДЕР СТРАНИЦЫ.]
 
   const [list, setList] = useState([]);
 
   const [mode, setMode] = useState(MODE.CREATE);
 
-  // FIXME:
   const [id, setId] = useState(null);
 
   function saveTodo() {
@@ -78,8 +75,6 @@ function App() {
       <h1>Header</h1>
       <Input value={value} setValue={setValue} saveTodo={saveTodo} />
       <TodoList list={list} deleteTodo={deleteTodo} onEditTodo={onEditTodo} />
-      <button onClick={() => setPopup(true)}>Open popup</button>
-      <Popup active={popup} hidePopup={() => setPopup(false)} />
     </div>
   );
 }
