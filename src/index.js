@@ -22,10 +22,7 @@ root.render(
     </div> 
 
     <Routes>
-      <Route path="/about" element={<About />}>
-        <Route path='todo' element={<App />} />
-        <Route path='bye' element={<div className='container'><h1>Bye</h1></div>} />
-      </Route>
+      <Route path="/about" element={<About />} />
       <Route path="/contacts"  element={<div className='container'><h1>Contacts</h1></div>} />
       <Route path="/todo"  element={<App />} />
       <Route path="/"  element={<div className='container'><h1>Home</h1></div>} />

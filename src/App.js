@@ -8,7 +8,7 @@ const MODE = {
 };
 
 function App() {
-  const [value, setValue] = useState(''); // [Хранит состояние <input />, Изменяет значение слева, ОНА ДЕЛАЕТ ПОВТОРНЫЙ РЕНДЕР СТРАНИЦЫ.]
+  const [value, setValue] = useState('');
 
   const [list, setList] = useState([]);
 

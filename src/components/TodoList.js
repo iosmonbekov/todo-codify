@@ -19,7 +19,4 @@ function TodoList({ list, deleteTodo, onEditTodo }) {
   );
 }
 
-// 1. Router;
-// 2. Redux;
-// 3. Server;
 export default TodoList;
