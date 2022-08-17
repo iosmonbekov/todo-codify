@@ -1,6 +1,6 @@
 import TodoList from './components/TodoList';
 import Input from './components/Input';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const MODE = {
   CREATE: 'CREATE',
@@ -16,24 +16,31 @@ function App() {
 
   const [id, setId] = useState(null);
 
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  async function getTodos() {
+    const response = await fetch('http://localhost:8080/todos', {method: "GET"});
+    const todos = await response.json();
+    setList(todos);
+  }
+
   function saveTodo() {
     if (mode === MODE.CREATE) create();
     if (mode === MODE.EDIT) edit();
   }
 
-  function create() {
+  async function create() {
     if (value.trim() === '') return;
 
-    const id = new Date().getTime(); // Not Focus! Just Remember!
-
-    const todo = {
-      id: id,
-      value: value,
-    };
-
-    setList([...list, todo]);
+    await fetch('http://localhost:8080/todos', {
+      method: "POST", 
+      body: JSON.stringify({value})
+    });
 
     setValue('');
+    await getTodos();
   }
 
   function edit() {
