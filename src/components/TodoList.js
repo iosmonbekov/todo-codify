@@ -1,6 +1,6 @@
 import Todo from './Todo';
 
-function TodoList({ list, deleteTodo, onEditTodo }) {
+function TodoList({ list, deleteTodo }) {
   return (
     <>
       {list.map(
@@ -11,7 +11,6 @@ function TodoList({ list, deleteTodo, onEditTodo }) {
             key={todo.id}
             todo={todo}
             deleteTodo={deleteTodo}
-            onEditTodo={onEditTodo}
           />
         )
       )}

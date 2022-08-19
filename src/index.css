@@ -39,3 +39,7 @@ code {
 .menu a:hover {
   text-decoration: underline;
 }
+
+.http-image {
+  width: 300px;
+}

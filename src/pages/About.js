@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import TodoList from '../components/TodoList';
 
 // 0. Component init: Вызвалась компонента.
 // 1. Mount: JSX внедрили в DOM (*HTML).
@@ -17,7 +16,7 @@ const server = {
   },
 };
 
-function About() {
+function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
@@ -43,4 +42,4 @@ function About() {
   );
 }
 
-export default About;
+export default Comments;
