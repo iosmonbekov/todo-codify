@@ -24,6 +24,7 @@ function Input({ value, setValue, saveTodo }) {
   return (
     <div>
       <input
+        id='input'
         value={value}
         onFocus={() => setPlaceholder(PLACE_HOLDER)}
         placeholder={placeholder}
