@@ -1,0 +1,4 @@
+1. Promise!!! -> DANGER!!! https://learn.javascript.ru/promise-basics
+2. Modal window for Delete.
+3. Button for Edit.
+4. Modal window for Edit.

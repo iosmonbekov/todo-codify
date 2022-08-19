@@ -4,7 +4,7 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom'; // Wrapper for us
 import './index.css';
 import App from './App';
 import Menu from './components/Menu'
-import Comments from './pages/About';
+import Comments from './pages/Comments';
 import Http from './pages/Http';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

@@ -5,6 +5,7 @@ const todos = [];
 
 const server = http.createServer((request, response) => {
   response.setHeader('Access-Control-Allow-Origin', '*');
+  response.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
   switch(request.url) {
     case '/todos': 
       if (request.method === 'GET') {
@@ -25,6 +26,9 @@ const server = http.createServer((request, response) => {
           todos.push(todo);
           response.end()
         })
+      }
+      if (request.method = 'DELETE') {
+        // FIXME: DELETE
       }
       break;
     default: 
