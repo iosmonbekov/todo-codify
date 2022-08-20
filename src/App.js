@@ -4,7 +4,6 @@ import { useEffect, useState } from 'react';
 
 function App() {
   const [value, setValue] = useState('');
-
   const [list, setList] = useState([]);
 
   useEffect(() => {
@@ -18,10 +17,10 @@ function App() {
   }
 
   function saveTodo() {
-    create();
+    createTodo();
   }
 
-  async function create() {
+  async function createTodo() {
     if (value.trim() === '') return;
 
     await fetch('http://localhost:8080/todos', {
@@ -33,15 +32,9 @@ function App() {
     await getTodos();
   }
 
-  function deleteTodo(id) {
-    const newList = list.filter((todo) => {
-      if (todo.id === id) {
-        return false; // Delete
-      }
-      return true; // Leave
-    });
-
-    setList(newList);
+  async function deleteTodo(id) {
+    await fetch(`http://localhost:8080/todos/${id}`, {method: "DELETE"});
+    await getTodos();
   }
 
   return (
