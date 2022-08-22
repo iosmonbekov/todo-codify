@@ -20,7 +20,6 @@ function Comments() {
   const [comments, setComments] = useState([]);
 
   useEffect(() => {
-    console.log('Mount');
     getComments();
     return () => {
     };

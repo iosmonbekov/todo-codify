@@ -6,6 +6,7 @@ import App from './App';
 import Menu from './components/Menu'
 import Comments from './pages/Comments';
 import Http from './pages/Http';
+import Home from './pages/Home';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -24,7 +25,7 @@ root.render(
         <Route path="/comments" element={<Comments />} />
         <Route path="/http"  element={<Http />} />
         <Route path="/todo"  element={<App />} />
-        <Route path="/"  element={<div className='container'><h1>Home</h1></div>} />
+        <Route path="/"  element={<Home />} />
       </Routes>
     </div> 
   </BrowserRouter>
