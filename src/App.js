@@ -6,6 +6,7 @@ function App() {
   const [value, setValue] = useState('');
   const [list, setList] = useState([]);
 
+  // Mount
   useEffect(() => {
     getTodos();
   }, []);
@@ -24,8 +25,8 @@ function App() {
     if (value.trim() === '') return;
 
     await fetch('http://localhost:8080/todos', {
-      method: "POST", 
-      body: JSON.stringify({value})
+      method: 'POST',
+      body: JSON.stringify({ value }),
     });
 
     setValue('');
@@ -33,7 +34,7 @@ function App() {
   }
 
   async function deleteTodo(id) {
-    await fetch(`http://localhost:8080/todos/${id}`, {method: "DELETE"});
+    await fetch(`http://localhost:8080/todos/${id}`, { method: 'DELETE' });
     await getTodos();
   }
 
