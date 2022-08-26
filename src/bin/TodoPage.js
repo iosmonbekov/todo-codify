@@ -1,5 +1,5 @@
-import TodoList from './components/TodoList';
-import Input from './components/Input';
+import TodoList from '../components/TodoList';
+import Input from '../components/Input';
 import { useEffect, useState } from 'react';
 
 function App() {
@@ -39,8 +39,7 @@ function App() {
   }
 
   return (
-    <div className='container'>
-      <h1>Header</h1>
+    <div>
       <Input value={value} setValue={setValue} saveTodo={saveTodo} />
       <TodoList list={list} deleteTodo={deleteTodo} />
     </div>
