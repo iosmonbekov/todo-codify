@@ -13,7 +13,7 @@ root.render(
     <div className='container'>
       <Routes>
         <Route path='/' element={<HomePage />} />
-        <Route path='/cart' element={<div>Cart</div>} />
+        <Route path='/cart' element={<div>Cart2</div>} />
         <Route path='/product/:id' element={<div>Product</div>} />
         <Route path='/admin' element={<div>Admin</div>} />
       </Routes>
