@@ -5,6 +5,7 @@ import './index.css';
 
 import TopBar from './components/TopBar';
 import HomePage from './pages/HomePage/Index';
+import ProductPage from './pages/ProductPage/Index';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
@@ -16,7 +17,7 @@ root.render(
       <Routes>
         <Route path='/' element={<HomePage />} />
         <Route path='/cart' element={<div>Cart</div>} />
-        <Route path='/product/:id' element={<div>Product</div>} />
+        <Route path='/product/:id' element={<ProductPage />} />
         <Route path='/admin' element={<div>Admin</div>} />
       </Routes>
     </div>

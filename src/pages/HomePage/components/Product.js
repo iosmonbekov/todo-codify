@@ -1,6 +1,6 @@
-function Product({ product }) {
+function Product({ product, redirect }) {
   return (
-    <div className='product'>
+    <div onClick={() => redirect(product.id)} className='product'>
       <div className='product-img'>
         <img src={product.img} alt={product.name} />
       </div>
