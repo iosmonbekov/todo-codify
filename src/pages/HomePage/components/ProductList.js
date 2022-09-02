@@ -18,7 +18,6 @@ function ProductList() {
     const products = await response.json();
 
     setList(products);
-    console.log(products);
   };
 
   const redirectToProduct = (id) => {
