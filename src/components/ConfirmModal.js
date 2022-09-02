@@ -1,14 +1,14 @@
-function ConfirmModal({active, close}) {
+function ConfirmModal({ active, close, title, buttonText, callBack }) {
   return (
     <div className={`modal-wrapper ${active && 'active'}`}>
       <div className='modal-back' onClick={close}></div>
       <div className='modal'>
         <div className='modal-head'>
-          <h4>Are you sure?</h4>
+          <h4>{title}</h4>
           <button onClick={close}>X</button>
         </div>
         <div className='modal-body'>
-          <button>Confirm</button>
+          <button onClick={callBack}>{buttonText}</button>
         </div>
         <div className='modal-footer'></div>
       </div>

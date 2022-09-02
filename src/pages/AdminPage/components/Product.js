@@ -1,4 +1,4 @@
-function Product({ product, onDelete }) {
+function Product({ product, onAction }) {
   return (
     <li className='product'>
       <div className='product-info'>
@@ -7,7 +7,7 @@ function Product({ product, onDelete }) {
       </div>
 
       <div className='buttons'>
-        <button onClick={onDelete}>x</button>
+        <button onClick={() => onAction(product)}>x</button>
       </div>
     </li>
   );
