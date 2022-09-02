@@ -15,7 +15,7 @@
 .container {
   display: flex;
   flex-direction: row;
-  max-width: 900px;
+  max-width: 1000px;
   margin: 0 auto;
   padding: 0px 10px;
   height: 100%;
@@ -198,7 +198,7 @@ button:disabled {
 }
 
 .product {
-  width: 150px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -220,10 +220,11 @@ button:disabled {
 }
 
 .product-name {
+  font-size: 18px;
   margin: 5px auto;
 }
 
 .product-price {
   font-weight: 600;
-  font-size: 10px;
+  font-size: 14px;
 }
