@@ -1,53 +1,45 @@
 import { useState, useEffect } from 'react';
+import { deleteProduct, getProducts } from '../../api/api';
 import ConfirmModal from '../../components/ConfirmModal';
 import Product from './components/Product';
+import './admin-page.css'
 
 function AdminPage() {
   const [list, setList] = useState([]);
-  const [confirmModal, setConfirmModal] = useState(false);
   const [activeProduct, setActiveProduct] = useState(null);
 
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  const getProducts = async () => {
-    const response = await fetch(
-      `https://e-commerce-server-codify.herokuapp.com/products`,
-      { method: 'GET' }
-    );
-    const products = await response.json();
-    setList(products);
-  };
-
-  const deleteProduct = async () => {
-    await fetch(
-      `https://e-commerce-server-codify.herokuapp.com/products/${activeProduct.id}`,
-      { method: 'DELETE' }
-    );
-    setConfirmModal(false);
-    getProducts();
+  const handleDelete = async () => {
+    await deleteProduct(activeProduct.id)
+    setActiveProduct(null)
   };
 
   const onAction = (product) => {
     setActiveProduct(product);
-    console.log('onAction: ', product.id);
-    setConfirmModal(true);
-  };
+  }
+  const fetch = async () => {
+    const products = await getProducts()
+    setList(products);
+
+  }
+
+  useEffect(() => {
+    fetch()
+  }, [activeProduct]);
+
 
   return (
     <div className='admin-product-list'>
       <ul>
-        {list.map((product) => (
+        {list?.map((product) => (
           <Product key={product.id} product={product} onAction={onAction} />
         ))}
       </ul>
       <ConfirmModal
-        active={confirmModal}
-        close={() => setConfirmModal(false)}
+        active={!!activeProduct}
+        close={() => setActiveProduct(null)}
         title={'Confirm deletion'}
         buttonText={'Confirm'}
-        callBack={deleteProduct}
+        callBack={handleDelete}
       />
     </div>
   );
