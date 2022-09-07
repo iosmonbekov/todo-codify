@@ -6,7 +6,7 @@ function TopBar() {
       <Link to={'/'}>
         <h1>My Store</h1>
       </Link>
-
+        
       <Link to={'/cart'} className='button fancy-button'>
         Checkout
       </Link>
