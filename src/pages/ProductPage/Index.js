@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
-import Product from './../HomePage/components/Product';
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import Product from "./../HomePage/components/Product";
 
 function ProductPage() {
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
   const params = useParams();
 
   useEffect(() => {
@@ -13,7 +14,7 @@ function ProductPage() {
   async function getProduct(id) {
     const response = await fetch(
       `https://e-commerce-server-codify.herokuapp.com/products/${id}`,
-      { method: 'GET' }
+      { method: "GET" }
     );
     const product = await response.json();
 
@@ -22,6 +23,7 @@ function ProductPage() {
 
   return (
     <div>
+      <button onClick={() => navigate(-1)}>Back</button>
       <Product product={product} />
     </div>
   );
