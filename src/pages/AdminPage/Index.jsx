@@ -4,6 +4,7 @@ import ConfirmModal from "../../components/ConfirmModal";
 import Product from "./components/Product";
 import "./admin-page.css";
 import AddModal from "../../components/add-modal/add-modal";
+import AddModalUseForm from "../../components/add-modal-useForm/add-modal";
 
 function AdminPage() {
   const [list, setList] = useState([]);
@@ -24,7 +25,7 @@ function AdminPage() {
 
   useEffect(() => {
     fetch();
-  }, [activeProduct]);
+  }, [activeProduct, isShown]);
 
   return (
     <div className="admin-product-list">
@@ -37,7 +38,7 @@ function AdminPage() {
       <button className="add-new" onClick={() => setIsShown(true)}>
         Add new
       </button>
-      <AddModal setIsshown={setIsShown} isShown={isShown} />
+      <AddModalUseForm setIsshown={setIsShown} isShown={isShown} />
       <ConfirmModal
         active={!!activeProduct}
         close={() => setActiveProduct(null)}
