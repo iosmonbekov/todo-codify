@@ -9,6 +9,8 @@ function Product({ product, onAction }) {
       </div>
 
       <div className='buttons'>
+      <button onClick={() => onAction(product)}>+</button>
+
         <button onClick={() => onAction(product)}>x</button>
       </div>
     </li>

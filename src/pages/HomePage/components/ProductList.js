@@ -50,10 +50,10 @@ function ProductList() {
   return (
     <div className="product-list">
       {/* <Array /> */}
-      <button onClick={() => setIsShown(true)}>ShowModal</button>
+      {/* <button onClick={() => setIsShown(true)}>ShowModal</button>
       <Modal isShown={isShown} setIsShown={setIsShown} onSubmit={log}>
         <p>Показать крик в консоли?</p>
-      </Modal>
+      </Modal> */}
       {list.map((product) => (
         <Product
           key={product.id}

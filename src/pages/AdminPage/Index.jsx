@@ -32,6 +32,7 @@ function AdminPage() {
           <Product key={product.id} product={product} onAction={onAction} />
         ))}
       </ul>
+      <button className="Add-new">Add new</button>
       <ConfirmModal
         active={!!activeProduct}
         close={() => setActiveProduct(null)}
