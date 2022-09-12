@@ -79,13 +79,14 @@ const Array = () => {
   //   arr.splice(2);
 
   //arr.reduce возвращает новую переменную исходя из перебора массива
-  console.log(
-    "reduce",
-    arr.reduce((accum, elem, index) => {
-      accum[`element-${index}`] = elem;
-      return accum;
-    }, {})
-  );
+
+  // console.log(
+  //   "reduce",
+  //   arr.reduce((accum, elem, index) => {
+  //     accum[`element-${index}`] = elem;
+  //     return accum;
+  //   }, {})
+  // );
 
   console.log("array", arr);
 
