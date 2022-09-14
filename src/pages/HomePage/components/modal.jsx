@@ -15,7 +15,11 @@ const Modal = ({ isShown, setIsShown, onSubmit, children }) => {
         </p>
         {children}
         <div className="btns">
-          <button className="cancel" onClick={() => setIsShown(false)}>
+          <button
+            type="button"
+            className="cancel"
+            onClick={() => setIsShown(false)}
+          >
             cancel
           </button>
           <button className="submit" onClick={onSubmit}>

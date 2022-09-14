@@ -3,11 +3,12 @@ import { deleteProduct, getProducts } from "../../api/api";
 import ConfirmModal from "../../components/ConfirmModal";
 import Product from "./components/Product";
 import "./admin-page.css";
+import AddModal from "../../components/add-modal/add-modal";
 
 function AdminPage() {
   const [list, setList] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
-
+  const [isShown, setIsShown] = useState(false);
   const handleDelete = async () => {
     await deleteProduct(activeProduct.id);
     setActiveProduct(null);
@@ -32,7 +33,8 @@ function AdminPage() {
           <Product key={product.id} product={product} onAction={onAction} />
         ))}
       </ul>
-      <button className="Add-new">Add new</button>
+      <button className="Add-new">Add new</button>  
+      <AddModal setIsshown={setIsShown} isShown={isShown} />
       <ConfirmModal
         active={!!activeProduct}
         close={() => setActiveProduct(null)}

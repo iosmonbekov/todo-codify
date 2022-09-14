@@ -1,9 +1,8 @@
-import { useNavigate } from "react-router-dom";
 import { addProduct } from "../../api/api";
 import Modal from "../../pages/HomePage/components/modal";
 import "./add-modal.css";
 
-const AddModal = ({ isShown, setIsshown }) => {
+const AddModalUseForm = ({ isShown, setIsshown }) => {
   const onSubmit = async (e) => {
     e.preventDefault();
     const data = {};
@@ -31,4 +30,4 @@ const AddModal = ({ isShown, setIsshown }) => {
     </form>
   );
 };
-export default AddModal;
+export default AddModalUseForm;
