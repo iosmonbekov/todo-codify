@@ -3,17 +3,21 @@ import { deleteProduct, getProducts } from "../../api/api";
 import ConfirmModal from "../../components/ConfirmModal";
 import Product from "./components/Product";
 import "./admin-page.css";
-import AddModal from "../../components/add-modal/add-modal";
 import AddModalUseForm from "../../components/add-modal-useForm/add-modal";
-
+import { useSelector, useDispatch } from "react-redux";
+import { setIsModalShown } from "../../store/actions/actions";
 function AdminPage() {
   const [list, setList] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
-  const [isShown, setIsShown] = useState(false);
+
+  const dispatch = useDispatch();
+
   const handleDelete = async () => {
     await deleteProduct(activeProduct.id);
     setActiveProduct(null);
   };
+
+  const { isModalShown } = useSelector((state) => state);
 
   const onAction = (product) => {
     setActiveProduct(product);
@@ -25,7 +29,7 @@ function AdminPage() {
 
   useEffect(() => {
     fetch();
-  }, [activeProduct, isShown]);
+  }, [activeProduct, isModalShown]);
 
   return (
     <div className="admin-product-list">
@@ -35,10 +39,13 @@ function AdminPage() {
         ))}
       </ul>
 
-      <button className="add-new" onClick={() => setIsShown(true)}>
+      <button
+        className="add-new"
+        onClick={() => dispatch(setIsModalShown(true))}
+      >
         Add new
       </button>
-      <AddModalUseForm setIsshown={setIsShown} isShown={isShown} />
+      <AddModalUseForm />
       <ConfirmModal
         active={!!activeProduct}
         close={() => setActiveProduct(null)}

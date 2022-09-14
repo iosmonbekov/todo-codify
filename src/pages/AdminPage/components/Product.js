@@ -1,8 +1,16 @@
-import { useState } from "react";
-import AddModalUseForm from "../../../components/add-modal-useForm/add-modal";
+import { useSelector, useDispatch } from "react-redux";
+import {
+  setIsCurrentProduct,
+  setIsModalShown,
+} from "../../../store/actions/actions";
 
 function Product({ product, onAction }) {
-  const [isShown, setIsShown] = useState(false);
+  const dispatch = useDispatch();
+
+  const getChangeProduct = () => {
+    dispatch(setIsModalShown(true));
+    dispatch(setIsCurrentProduct(product));
+  };
 
   return (
     <>
@@ -13,15 +21,10 @@ function Product({ product, onAction }) {
         </div>
 
         <div className="buttons">
-          <button onClick={() => setIsShown(true)}>Edit</button>
+          <button onClick={getChangeProduct}>Edit</button>
           <button onClick={() => onAction(product)}>x</button>
         </div>
       </li>
-      <AddModalUseForm
-        isShown={isShown}
-        setIsshown={setIsShown}
-        product={product}
-      />
     </>
   );
 }

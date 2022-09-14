@@ -1,16 +1,24 @@
+import { useSelector, useDispatch } from "react-redux";
+import { setIsModalShown } from "../../../store/actions/actions";
 import "./modal.css";
 
-const Modal = ({ isShown, setIsShown, onSubmit, children }) => {
+const Modal = ({ onSubmit, children }) => {
+  const dispatch = useDispatch();
   const closeModalByBg = (event) => {
     if (event.target.className === "modal-bg") {
-      setIsShown(false);
+      dispatch(setIsModalShown(false));
     }
   };
 
-  return isShown ? (
+  const { currentProduct, isModalShown } = useSelector((state) => state);
+
+  return isModalShown ? (
     <div className="modal-bg" onClick={closeModalByBg}>
       <div className="my-modal">
-        <p className="close-btn" onClick={() => setIsShown(false)}>
+        <p
+          className="close-btn"
+          onClick={() => dispatch(setIsModalShown(false))}
+        >
           X
         </p>
         {children}
@@ -18,7 +26,7 @@ const Modal = ({ isShown, setIsShown, onSubmit, children }) => {
           <button
             type="button"
             className="cancel"
-            onClick={() => setIsShown(false)}
+            onClick={() => dispatch(setIsModalShown(false))}
           >
             cancel
           </button>
