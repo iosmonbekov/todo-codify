@@ -1,9 +1,8 @@
-import { useLocation } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../../store/actions/actions";
 
 function Product({ product, redirect }) {
-  const location = useLocation();
-  // console.log(location);
-
+  const dispatch = useDispatch();
   return (
     <div onClick={() => redirect(product.id)} className="product">
       <div className="product-img">
@@ -11,6 +10,15 @@ function Product({ product, redirect }) {
       </div>
       <p className="product-name">{product.name}</p>
       <span className="product-price">${product.price}</span>
+
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          dispatch(addToCart(product));
+        }}
+      >
+        add to cart
+      </button>
     </div>
   );
 }

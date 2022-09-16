@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { deleteProduct, getProducts } from "../../api/api";
 import ConfirmModal from "../../components/ConfirmModal";
 import Product from "./components/Product";
@@ -6,8 +6,8 @@ import "./admin-page.css";
 import AddModalUseForm from "../../components/add-modal-useForm/add-modal";
 import { useSelector, useDispatch } from "react-redux";
 import { setIsModalShown } from "../../store/actions/actions";
+import { useQuery } from "react-query";
 function AdminPage() {
-  const [list, setList] = useState([]);
   const [activeProduct, setActiveProduct] = useState(null);
 
   const dispatch = useDispatch();
@@ -22,16 +22,18 @@ function AdminPage() {
   const onAction = (product) => {
     setActiveProduct(product);
   };
-  const fetch = async () => {
-    const products = await getProducts();
-    setList(products);
-  };
 
-  useEffect(() => {
-    fetch();
-  }, [activeProduct, isModalShown]);
+  const { data: list, isLoading } = useQuery(
+    ["product-list", activeProduct, isModalShown],
+    () => getProducts(),
+    {
+      cacheTime: 0,
+    }
+  );
 
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="admin-product-list">
       <ul>
         {list?.map((product) => (
