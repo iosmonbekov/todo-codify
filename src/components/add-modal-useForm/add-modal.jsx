@@ -1,9 +1,10 @@
+import { useEffect } from "react";
 import { useForm } from "react-hook-form";
-import { addProduct } from "../../api/api";
+import { addProduct, changeProduct } from "../../api/api";
 import Modal from "../../pages/HomePage/components/modal";
 import "./add-modal.css";
 
-const AddModalUseForm = ({ isShown, setIsshown }) => {
+const AddModalUseForm = ({ isShown, setIsshown, product = null }) => {
   const {
     register,
     handleSubmit,
@@ -17,7 +18,11 @@ const AddModalUseForm = ({ isShown, setIsshown }) => {
       console.log(errors?.name?.message);
     }
     try {
-      await addProduct(data);
+      if (product) {
+        await changeProduct(product.id, data);
+      } else {
+        await addProduct(data);
+      }
       reset();
       setIsshown(false);
     } catch (error) {
@@ -25,7 +30,11 @@ const AddModalUseForm = ({ isShown, setIsshown }) => {
       throw new Error("Что-то не так с пост запросом");
     }
   };
-  console.log(watch("price"));
+  useEffect(() => {
+    if (product) {
+      reset(product);
+    }
+  }, [product, reset]);
 
   return (
     <Modal
