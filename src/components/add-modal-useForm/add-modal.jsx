@@ -2,46 +2,43 @@ import { useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { addProduct, changeProduct } from "../../api/api";
 import Modal from "../../pages/HomePage/components/modal";
+import { useSelector, useDispatch } from "react-redux";
 import "./add-modal.css";
 
-const AddModalUseForm = ({ isShown, setIsshown, product = null }) => {
+const AddModalUseForm = () => {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    watch,
     reset,
   } = useForm();
+
+  const { currentProduct } = useSelector((state) => state);
 
   const onSubmit = async (data) => {
     if (errors?.name) {
       console.log(errors?.name?.message);
     }
     try {
-      if (product) {
-        await changeProduct(product.id, data);
+      if (currentProduct) {
+        await changeProduct(currentProduct.id, data);
       } else {
         await addProduct(data);
       }
       reset();
-      setIsshown(false);
     } catch (error) {
       console.dir(error);
       throw new Error("Что-то не так с пост запросом");
     }
   };
   useEffect(() => {
-    if (product) {
-      reset(product);
+    if (currentProduct) {
+      reset(currentProduct);
     }
-  }, [product, reset]);
+  }, [currentProduct, reset]);
 
   return (
-    <Modal
-      isShown={isShown}
-      setIsShown={setIsshown}
-      onSubmit={handleSubmit(onSubmit)}
-    >
+    <Modal onSubmit={handleSubmit(onSubmit)}>
       <form onSubmit={handleSubmit(onSubmit)}>
         <input
           placeholder="name"
