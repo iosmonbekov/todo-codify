@@ -13,23 +13,28 @@ import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./store/reducer";
 import { Provider } from "react-redux";
 import thunk from "redux-thunk";
+import CartPage from "./pages/CartPage/Index";
+import { QueryClient, QueryClientProvider } from "react-query";
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
 const root = ReactDOM.createRoot(document.getElementById("root"));
+const queryClient = new QueryClient();
 
 root.render(
   <Provider store={store}>
-    <BrowserRouter>
-      <TopBar />
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>
+        <TopBar />
 
-      <div className="container">
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/product/:id" element={<ProductPage />} />
-          <Route path="/admin" element={<AdminPage />} />
-          <Route path="/cart" element={<div>Cart</div>} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+        <div className="container">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/product/:id" element={<ProductPage />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/cart" element={<CartPage />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </QueryClientProvider>
   </Provider>
 );

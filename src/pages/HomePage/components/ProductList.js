@@ -5,11 +5,13 @@ import { getProducts } from "../../../api/api";
 
 function ProductList() {
   const [list, setList] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const fetch = async () => {
     const products = await getProducts();
     setList(products);
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -20,7 +22,9 @@ function ProductList() {
     navigate(`product/${id}`, { state: list });
   };
 
-  return (
+  return isLoading ? (
+    <div>Loading...</div>
+  ) : (
     <div className="product-list">
       {/* <Array /> */}
       {/* <button onClick={() => setIsShown(true)}>ShowModal</button>
