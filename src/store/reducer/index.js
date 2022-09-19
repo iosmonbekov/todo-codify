@@ -1,6 +1,7 @@
 const initialState = {
   isModalShown: false,
   currentProduct: null,
+  cart: []
 };
 
 function rootReducer(state = initialState, action) {
@@ -10,6 +11,9 @@ function rootReducer(state = initialState, action) {
 
     case "SET_PRODUCT":
       return { ...state, currentProduct: action.product };
+
+      case "SET_CART":
+      return { ...state, cart: action.cart };
 
     default:
       return state;

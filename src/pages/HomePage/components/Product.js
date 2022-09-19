@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 
 function Product({ product, redirect }) {
-  const location = useLocation();
-  // console.log(location);
+const dispatch = useDispatch();
+dispatch()
 
   return (
     <div onClick={() => redirect(product.id)} className="product">
