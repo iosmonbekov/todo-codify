@@ -1,23 +1,25 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from "@reduxjs/toolkit";
 
-export const counterSlice = createSlice({
-    name: 'counter',
-    initialState: {
-        value: 0,
+export const cartSlice = createSlice({
+  name: "cart",
+  initialState: {
+    cart: [],
+  },
+  reducers: {
+    addToCart: (state, action) => {
+      if (state.cart.every((prod) => prod.id !== action.payload.id)) {
+        state.cart.push(action.payload);
+      }
     },
-    reducers: {
-        increment: (state) => {
-            state.value += 1
-        },
-        decrement: (state) => {
-            state.value -= 1
-        },
-        incrementByAmount: (state, action) => {
-            state.value += action.payload
-        },
+    removeFromCard: (state, action) => {
+      const index = state.cart.findIndex(
+        (product) => product.id === action.payload
+      );
+      state.cart.splice(index, 1);
     },
-})
+  },
+});
 
-export const { increment, decrement, incrementByAmount } = counterSlice.actions
+export const { addToCart, removeFromCard } = cartSlice.actions;
 
-export default counterSlice.reducer
+export default cartSlice.reducer;

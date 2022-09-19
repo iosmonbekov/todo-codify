@@ -1,5 +1,15 @@
+import { useSelector } from "react-redux";
+
 function CartPage() {
-  return <div>CartPage</div>
+  const { cart } = useSelector((state) => state.cart);
+  console.log(cart);
+  return (
+    <div>
+      {cart.map((product) => (
+        <p>{product.name}</p>
+      ))}
+    </div>
+  );
 }
 
 export default CartPage;
