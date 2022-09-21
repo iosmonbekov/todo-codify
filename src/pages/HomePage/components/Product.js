@@ -6,6 +6,10 @@ const dispatch = useDispatch();
 dispatch()
 
   const dispatch = useDispatch();
+import { addToCart } from "../../../store/cart-slice";
+
+function Product({ product, redirect }) {
+  const dispath = useDispatch();
   return (
     <div onClick={() => redirect(product.id)} className="product">
       <div className="product-img">
@@ -13,7 +17,6 @@ dispatch()
       </div>
       <p className="product-name">{product.name}</p>
       <span className="product-price">${product.price}</span>
-
       <button
         onClick={(e) => {
           e.stopPropagation();
@@ -21,6 +24,15 @@ dispatch()
         }}
       >
         add to cart
+=======
+      <button
+        onClick={(e) => {
+          e.stopPropagation();
+          dispath(addToCart(product));
+        }}
+      >
+        to cart
+>>>>>>> ee4fdd10d128ed1e6678388be0bbbd326f33d6c0
       </button>
     </div>
   );

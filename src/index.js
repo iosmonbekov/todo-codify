@@ -9,6 +9,7 @@ import TopBar from "./components/TopBar";
 import HomePage from "./pages/HomePage/Index";
 import ProductPage from "./pages/ProductPage/Index";
 import AdminPage from "./pages/AdminPage/Index";
+<<<<<<< HEAD
 import { createStore, applyMiddleware } from "redux";
 import rootReducer from "./store/reducer";
 import { Provider } from "react-redux";
@@ -36,5 +37,27 @@ root.render(
         </div>
       </BrowserRouter>
     </QueryClientProvider>
+=======
+import CartPage from "./pages/CartPage/Index";
+import store from "./store/store";
+import { Provider } from "react-redux";
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+
+root.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <TopBar />
+
+      <div className="container">
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/product/:id" element={<ProductPage />} />
+          <Route path="/admin" element={<AdminPage />} />
+          <Route path="/cart" element={<CartPage />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
+>>>>>>> ee4fdd10d128ed1e6678388be0bbbd326f33d6c0
   </Provider>
 );
