@@ -1,0 +1,12 @@
+.create-product-wrapper {
+    margin: 1rem auto;
+}
+
+.create-product-image-preview {
+    max-width: 200px;
+    margin: 10px 0px;
+}
+
+.create-product-image-preview img {
+    width: 100%;
+}
