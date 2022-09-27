@@ -1,9 +1,0 @@
-// !!!
-// Finish ConfirmModal;
-// Deletion of Todo;
-
-// Edit button;
-// Edit Modal;
-
-*Deploy:
-https://github.com/gitname/react-gh-pages

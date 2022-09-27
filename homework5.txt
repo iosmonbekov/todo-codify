@@ -1,8 +1,0 @@
-// React-Router-Dom:
-1. BrowserRouter;
-2. Routes;
-3. <Route path="/home" element={Component || html} />
-4. <Link to='/home' /> redirect to path = '/home'
-5. useNavigate https://reactrouter.com/docs/en/v6/hooks/use-navigate *For programmatically navigation;
-6. Outlet https://reactrouter.com/docs/en/v6/components/outlet
-

@@ -1,8 +1,6 @@
 function Product({ product, onAction }) {
   return (
-    <li className='product'
-    onClick={()=> console.log('CLICK')}
-    >
+    <li data-product-id={product.id} className='product'>
       <div className='product-info'>
         <p className='product-name'>{product.name}</p>
         <span className='product-price'>${product.price}</span>

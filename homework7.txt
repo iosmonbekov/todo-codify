@@ -1,3 +1,0 @@
-1. Fetch: https://learn.javascript.ru/fetch
-2. Promise: !!! https://learn.javascript.ru/promise-basics
-3. HTTP: https://developer.mozilla.org/en-US/docs/Web/HTTP

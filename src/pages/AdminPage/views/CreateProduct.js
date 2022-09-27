@@ -27,15 +27,15 @@ function CreateProduct() {
         <form className="create-product-form" onSubmit={onFormSubmit}>
             <div className="create-product-name-field">
                 <label>Name</label>
-                <input type="text" value={form.name} onInput={(e) => setForm((form) => ({ ...form, name: e.target.value }))} />
+                <input type="text" name="name" value={form.name} onInput={(e) => setForm((form) => ({ ...form, name: e.target.value }))} />
             </div>
             <div className="create-product-price-field">
                 <label>Price</label>
-                <input type="text" value={form.price} onInput={(e) => setForm((form) => ({ ...form, price: e.target.value }))} />
+                <input type="text" name="price" value={form.price} onInput={(e) => setForm((form) => ({ ...form, price: e.target.value }))} />
             </div>
             <div className="create-product-image-field">
                 <label>Image Link</label>
-                <input type="text" value={form.img} onInput={(e) => setForm((form) => ({ ...form, img: e.target.value }))} />
+                <input type="text" name="img" value={form.img} onInput={(e) => setForm((form) => ({ ...form, img: e.target.value }))} />
             </div>
             <div className="create-product-image-preview">
                 {

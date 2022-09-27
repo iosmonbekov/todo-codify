@@ -1,7 +1,0 @@
-// EventLoop: 
-  - image: https://res.cloudinary.com/practicaldev/image/fetch/s--Y1v6aJBu--/c_imagga_scale,f_auto,fl_progressive,h_900,q_auto,w_1600/https://thepracticaldev.s3.amazonaws.com/i/ek7ji4zrimozpp2yzk0a.png;
-  - source: https://learn.javascript.ru/event-loop;
-// Promise: 
-  - youtube: https://www.youtube.com/watch?v=1idOY3C1gYU;
-  - source: https://learn.javascript.ru/promise-basics;
-  - Observer pattern;
